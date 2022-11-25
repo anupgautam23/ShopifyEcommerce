@@ -19,7 +19,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @ToString
 @Entity
 public class CurrentUserSession {
@@ -34,5 +34,14 @@ public class CurrentUserSession {
 	private String uuid;
 	
 	private LocalDateTime logInTime;
+
+	public CurrentUserSession(Integer userId, String uuid, LocalDateTime logInTime) {
+		super();
+		this.userId = userId;
+		this.uuid = uuid;
+		this.logInTime = logInTime;
+	}
+	
+	
 
 }
