@@ -42,7 +42,7 @@ public class Address {
 	private Integer houseNo;
 	
 	@NotNull(message = "pincode is not null ")
-//	@Size(min = 6,max = 6,message = "pincode should be length of 6 ")
+	@Size(min = 6,max = 6,message = "pincode should be length of 6 ")
 	private Integer pinCode;
 	
 	@JsonIgnore
