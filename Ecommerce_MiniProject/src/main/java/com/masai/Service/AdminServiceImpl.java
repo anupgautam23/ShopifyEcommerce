@@ -45,7 +45,7 @@ public class AdminServiceImpl implements AdminService{
 								
 			CurrentAdminSession existAdminSession	=adminSessionRepo.findByAdminId(existAdmin.getId());
 							  
-	   	    if(existAdminSession!=null)  throw new UserException("User Already logged in ");
+	   	    if(existAdminSession!=null)  throw new UserException("Admin Already logged in ");
 							
     		if(!existAdmin.getPassword().equals(adminDTO.getPassword())) throw new UserException("password does not match ");
 									
@@ -59,5 +59,14 @@ public class AdminServiceImpl implements AdminService{
 								
 			
 	}
+
+	@Override
+	public String logOutAdmin(String key) throws UserException {
+		 CurrentAdminSession loggedAdmin = adminSessionRepo.findByUuid(key);
+		 if(loggedAdmin==null) throw new UserException("No Admin logged In ");
+		 adminSessionRepo.delete(loggedAdmin);
+		return "logout successfully...";
+	}
+	
 
 }
